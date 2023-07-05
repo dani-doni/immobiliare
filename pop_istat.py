@@ -18,8 +18,11 @@ STACIVX = 99
 TIPO_INDDEM = "JAN"
 #declare API varibles
 
-api_url = "https://sdmx.istat.it/SDMXWS/rest/data/22_289/{}.{}.{}.{}.{}.{}/"
-url = api_url.format (FREQ,ETA,ITTER107,SESSO,STACIVX,TIPO_INDDEM)
-print (url)
-response = requests.get(url)
-response.text
+st.write(f"tutto bene")
+st.write(FREQ)
+
+#api_url = "https://sdmx.istat.it/SDMXWS/rest/data/22_289/{}.{}.{}.{}.{}.{}/"
+#url = api_url.format (FREQ,ETA,ITTER107,SESSO,STACIVX,TIPO_INDDEM)
+#print (url)
+#response = requests.get(url)
+#response.text
