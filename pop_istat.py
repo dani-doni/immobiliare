@@ -8,11 +8,12 @@ CL_ITTER107 = pd.read_csv(url_CL_ITTER107)
 # take data of ITTER107 and read it as csv
 
 chosen_ITTER107 = st.selectbox('Comune', options=list(CL_ITTER107['dimensionValueDescription']))
-#choose a ITTER107 from streamlit frontend
+id_ITTER107 = CL_ITTER107.loc[CL_ITTER107 ['dimensionValueDescription'] == chosen_ITTER107,'dimensionValueID'].iloc[0]
+#choose a ITTER107 from streamlit frontend and take the ID
 
 FREQ = "A"
 ETA = "TOTAL"
-ITTER107 = chosen_ITTER107
+ITTER107 = id_ITTER107
 SESSO = 9
 STACIVX = 99
 TIPO_INDDEM = "JAN"
