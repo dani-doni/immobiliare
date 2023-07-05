@@ -42,5 +42,3 @@ if submitted:
     else:
         st.error("Error")
       
-if __name__ == '__main__':
-    main()
