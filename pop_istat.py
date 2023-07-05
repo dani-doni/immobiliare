@@ -22,8 +22,7 @@ st.write(f"tutto bene")
 st.write(FREQ)
 
 api_url = "https://sdmx.istat.it/SDMXWS/rest/data/22_289/{}.{}.{}.{}.{}.{}/"
-st.write(api_url)
-#url = api_url.format (FREQ,ETA,ITTER107,SESSO,STACIVX,TIPO_INDDEM)
-#print (url)
+url = api_url.format (FREQ,ETA,ITTER107,SESSO,STACIVX,TIPO_INDDEM)
+st.write(url)
 #response = requests.get(url)
 #response.text
