@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
-import httpx
+import aiohttp
+import asyncio
+
 #import requests
 #from requests.adapters import HTTPAdapter
 #from urllib3.util.retry import Retry
@@ -27,8 +29,19 @@ api_url = "https://sdmx.istat.it/SDMXWS/rest/data/22_289/{}.{}.{}.{}.{}.{}/"
 url = api_url.format (FREQ,ETA,ITTER107,SESSO,STACIVX,TIPO_INDDEM)
 st.write(url)
 
-response = httpx.get(url)
-st.write(response.text)
+
+async def main():
+
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as response:
+
+            print("Status:", response.status)
+            print("Content-type:", response.headers['content-type'])
+
+            html = await response.text()
+            print("Body:", html[:15], "...")
+
+  asyncio.run(main())
        
 
       
