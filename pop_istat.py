@@ -8,7 +8,7 @@ def fetch(session, url):
     try:
         result = session.get(url)
         return result.json()
-        sleep(5)
+        time.sleep(5.0)
     except requests.exceptions.ConnectionError:
         r.status_code = "Connection refused"
 
