@@ -7,6 +7,7 @@ from time import sleep
 def fetch(session, url):
     try:
         result = session.get(url)
+        time.sleep(5.0)
         return result.json()
         time.sleep(5.0)
     except requests.exceptions.ConnectionError:
