@@ -33,10 +33,11 @@ adapter = HTTPAdapter(max_retries=retry)
 session.mount('http://', adapter)
 session.mount('https://', adapter)
 
-result = session.get(url)
-st.write(response_API.status_code)
-#return result.json()
+response = session.get(url)
+st.write(f"Response: {response.status_code}")
 
+data = response.json()
+session.close
        
 
       
