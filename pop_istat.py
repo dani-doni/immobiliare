@@ -1,8 +1,9 @@
 import streamlit as st
 import pandas as pd
-import requests
-from requests.adapters import HTTPAdapter
-from urllib3.util.retry import Retry
+import httpx
+#import requests
+#from requests.adapters import HTTPAdapter
+#from urllib3.util.retry import Retry
 
 url_CL_ITTER107 = 'https://raw.githubusercontent.com/ondata/guida-api-istat/master/processing/DCIS_POPRES1/3_Dimension_CL_ITTER107.csv'
 CL_ITTER107 = pd.read_csv(url_CL_ITTER107)
@@ -26,18 +27,8 @@ api_url = "https://sdmx.istat.it/SDMXWS/rest/data/22_289/{}.{}.{}.{}.{}.{}/"
 url = api_url.format (FREQ,ETA,ITTER107,SESSO,STACIVX,TIPO_INDDEM)
 st.write(url)
 
-
-session = requests.Session()
-retry = Retry(connect=3, backoff_factor=0.5)
-adapter = HTTPAdapter(max_retries=retry)
-session.mount('http://', adapter)
-session.mount('https://', adapter)
-
-response = session.get(url)
-st.write(f"Response: {response.status_code}")
-
-data = response.json()
-session.close
+response = httpx.get(url)
+st.write(response.text)
        
 
       
